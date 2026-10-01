@@ -1,0 +1,292 @@
+{
+  "walls": {
+    "cicada": {
+      "width": 1672,
+      "height": 941,
+      "color": "#262630",
+      "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQBACdASoYAA4APsFSoUsnpKMhsAgA8BgJZQCdACHv5f0OudyltRk4gAD++FUCxP1qlHV9X16kufdXL5jyw7LS+sV3M/rMYE8S5kvXa7NyihSCAomfleHingSIDaJMqHjvWAAA",
+      "variants": {
+        "avif": [
+          {
+            "w": 480,
+            "src": "/art/cicada-480.a9883f8b.avif",
+            "bytes": 21012
+          },
+          {
+            "w": 828,
+            "src": "/art/cicada-828.cb1ad536.avif",
+            "bytes": 60291
+          },
+          {
+            "w": 1280,
+            "src": "/art/cicada-1280.45b961c3.avif",
+            "bytes": 126733
+          },
+          {
+            "w": 1672,
+            "src": "/art/cicada-1672.e0cb513b.avif",
+            "bytes": 186048
+          }
+        ],
+        "webp": [
+          {
+            "w": 480,
+            "src": "/art/cicada-480.93969165.webp",
+            "bytes": 29164
+          },
+          {
+            "w": 828,
+            "src": "/art/cicada-828.cf0cf442.webp",
+            "bytes": 79282
+          },
+          {
+            "w": 1280,
+            "src": "/art/cicada-1280.9205be55.webp",
+            "bytes": 172570
+          },
+          {
+            "w": 1672,
+            "src": "/art/cicada-1672.4fc98d11.webp",
+            "bytes": 254564
+          }
+        ]
+      }
+    },
+    "timbre": {
+      "width": 1672,
+      "height": 941,
+      "color": "#2f2d53",
+      "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoYAA4APsFOoEqnpCMhsAgA8BgJbACdACIfs6aDNU0rfabQAP71lZ09XkFmCrqFu5oetMHJar+wwzLfVzoqUSmB5OfrFr4b4w8m+tIGLi8dlAxWWf8vFRix2Nn+clczzo5oAA==",
+      "variants": {
+        "avif": [
+          {
+            "w": 480,
+            "src": "/art/timbre-480.d89e871f.avif",
+            "bytes": 11210
+          },
+          {
+            "w": 828,
+            "src": "/art/timbre-828.84dcef61.avif",
+            "bytes": 23148
+          },
+          {
+            "w": 1280,
+            "src": "/art/timbre-1280.c8595ee9.avif",
+            "bytes": 38269
+          },
+          {
+            "w": 1672,
+            "src": "/art/timbre-1672.aa1a484d.avif",
+            "bytes": 51888
+          }
+        ],
+        "webp": [
+          {
+            "w": 480,
+            "src": "/art/timbre-480.42d6a3b3.webp",
+            "bytes": 15000
+          },
+          {
+            "w": 828,
+            "src": "/art/timbre-828.c6d7f2f4.webp",
+            "bytes": 33276
+          },
+          {
+            "w": 1280,
+            "src": "/art/timbre-1280.c0e55a46.webp",
+            "bytes": 61500
+          },
+          {
+            "w": 1672,
+            "src": "/art/timbre-1672.0bb69cb8.webp",
+            "bytes": 91556
+          }
+        ]
+      }
+    },
+    "electroplate": {
+      "width": 1672,
+      "height": 941,
+      "color": "#152222",
+      "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwBACdASoYAA4APsFQoUqnpKMhsAgA8BgJZACw7GlgTnVcaFfZkHkeWwAA/v8JUYvnOltS4hqWsAQ6x+pSZOMH96gq7KeKDLNxT+Rvw3y+65u5xWu/UoG6ptq37H3I0NejyEYA",
+      "variants": {
+        "avif": [
+          {
+            "w": 480,
+            "src": "/art/electroplate-480.65985f6b.avif",
+            "bytes": 35081
+          },
+          {
+            "w": 828,
+            "src": "/art/electroplate-828.55a8d89f.avif",
+            "bytes": 81661
+          },
+          {
+            "w": 1280,
+            "src": "/art/electroplate-1280.6df74c8f.avif",
+            "bytes": 145810
+          },
+          {
+            "w": 1672,
+            "src": "/art/electroplate-1672.83f6080b.avif",
+            "bytes": 203331
+          }
+        ],
+        "webp": [
+          {
+            "w": 480,
+            "src": "/art/electroplate-480.383a3ab8.webp",
+            "bytes": 134118
+          },
+          {
+            "w": 828,
+            "src": "/art/electroplate-828.bac0c38c.webp",
+            "bytes": 342216
+          },
+          {
+            "w": 1280,
+            "src": "/art/electroplate-1280.5ea9b771.webp",
+            "bytes": 689554
+          },
+          {
+            "w": 1672,
+            "src": "/art/electroplate-1672.d790ed9f.webp",
+            "bytes": 1089350
+          }
+        ]
+      }
+    },
+    "axio": {
+      "width": 1672,
+      "height": 941,
+      "color": "#492a29",
+      "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACQBACdASoYAA4APsFUoksnpKMhsAgA8BgJaACdMoR4GCIdIH/kOT5T9j32aAAA/vaS7kbK63z6puzUCTiUCacFwi5ERLP9wlU2/cjgQ1dvpMtyBUdzV8B/VVD3OrWIF5fbR68hpVbGxkzECsC3s/aK3gpIS6QAAAA=",
+      "variants": {
+        "avif": [
+          {
+            "w": 480,
+            "src": "/art/axio-480.b1ada4f4.avif",
+            "bytes": 28319
+          },
+          {
+            "w": 828,
+            "src": "/art/axio-828.af6af022.avif",
+            "bytes": 73537
+          },
+          {
+            "w": 1280,
+            "src": "/art/axio-1280.ec4b953c.avif",
+            "bytes": 146098
+          },
+          {
+            "w": 1672,
+            "src": "/art/axio-1672.6f08d463.avif",
+            "bytes": 210090
+          }
+        ],
+        "webp": [
+          {
+            "w": 480,
+            "src": "/art/axio-480.5c9cf2ed.webp",
+            "bytes": 38252
+          },
+          {
+            "w": 828,
+            "src": "/art/axio-828.c62a65d3.webp",
+            "bytes": 98628
+          },
+          {
+            "w": 1280,
+            "src": "/art/axio-1280.19c9d953.webp",
+            "bytes": 199764
+          },
+          {
+            "w": 1672,
+            "src": "/art/axio-1672.e546deb9.webp",
+            "bytes": 306354
+          }
+        ]
+      }
+    },
+    "talenta": {
+      "width": 1672,
+      "height": 941,
+      "color": "#5c7b8f",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwBACdASoYAA4APsFOoUqnpCMhsAgA8BgJZACdMoADTsrfJDzCA/5QHvw4AAD+7Ju7/6+PLMMO8BQ2psZSXljPuNyrrnt93OIpSsUD6rBo1aOqyrXynJAOOeGLU+76owR79Y9c2rP49Sm9b8m08pdDFXiSYwAA",
+      "variants": {
+        "avif": [
+          {
+            "w": 480,
+            "src": "/art/talenta-480.49bebb2f.avif",
+            "bytes": 20746
+          },
+          {
+            "w": 828,
+            "src": "/art/talenta-828.ecb062d3.avif",
+            "bytes": 67103
+          },
+          {
+            "w": 1280,
+            "src": "/art/talenta-1280.52d7c032.avif",
+            "bytes": 163785
+          },
+          {
+            "w": 1672,
+            "src": "/art/talenta-1672.98e45ad2.avif",
+            "bytes": 260220
+          }
+        ],
+        "webp": [
+          {
+            "w": 480,
+            "src": "/art/talenta-480.fafaa03c.webp",
+            "bytes": 28498
+          },
+          {
+            "w": 828,
+            "src": "/art/talenta-828.6a90ced3.webp",
+            "bytes": 94144
+          },
+          {
+            "w": 1280,
+            "src": "/art/talenta-1280.70bb2659.webp",
+            "bytes": 236514
+          },
+          {
+            "w": 1672,
+            "src": "/art/talenta-1672.4b6c6fb9.webp",
+            "bytes": 395988
+          }
+        ]
+      }
+    }
+  },
+  "icons": {
+    "cicada": {
+      "96": "/icons/cicada-96.84664b52.webp",
+      "192": "/icons/cicada-192.e39de05d.webp",
+      "384": "/icons/cicada-384.af4cdba6.webp"
+    },
+    "timbre": {
+      "96": "/icons/timbre-96.3476a1f4.webp",
+      "192": "/icons/timbre-192.28e0df6a.webp",
+      "384": "/icons/timbre-384.452be412.webp"
+    },
+    "electroplate": {
+      "96": "/icons/electroplate-96.98a714ca.webp",
+      "192": "/icons/electroplate-192.6b0c6d2f.webp",
+      "384": "/icons/electroplate-384.1759b5fd.webp"
+    },
+    "axio": {
+      "96": "/icons/axio-96.dba11025.webp",
+      "192": "/icons/axio-192.3afd0c3c.webp",
+      "384": "/icons/axio-384.fb4541ca.webp"
+    },
+    "talenta": {
+      "96": "/icons/talenta-96.b1ac4bb9.webp",
+      "192": "/icons/talenta-192.b205df03.webp",
+      "384": "/icons/talenta-384.5aa2e33f.webp"
+    }
+  },
+  "og": "/art/og.eed76b3b.jpg"
+}
