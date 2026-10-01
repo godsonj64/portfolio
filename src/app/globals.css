@@ -125,11 +125,8 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 .notch-links { display: flex; align-items: center; gap: 24px; }
 .notch-links a { font-size: 13px; font-weight: 600; letter-spacing: 0.005em; color: #c9c9d3; transition: color 0.2s; }
 .notch-links a:hover, .notch-links a:focus-visible { color: #fff; }
-@media (max-width: 860px) { .sync { display: none; } }
 @media (max-width: 560px) { .notch-mid { gap: 16px; } .notch-links { gap: 14px; } .notch-links a { font-size: 12.5px; } .brand { font-size: 13px; } }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 14px; letter-spacing: -0.005em; color: var(--fg); }
-.sync { display: inline-flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--fg-3); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; background: rgba(8, 8, 12, 0.6); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: border-color 0.3s, color 0.3s; }
-.sync:hover { border-color: var(--line-2); color: var(--fg-2); }
 
 /* ─────────────────────────────────────────────────────────────
    Hero

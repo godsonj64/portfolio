@@ -4,12 +4,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import * as m from "motion/react-m";
 import { AnimatePresence, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
-import { RelTime } from "./RelTime";
 
 /**
  * Dynamic header, after greymac.com: a black notch hangs from the top edge holding the ∞ mark, which traces
- * itself as you scroll. Hover, focus or tap the notch and it widens to reveal the navigation. The name and the
- * lab chip step out of the way while you scroll down and come back when you scroll up.
+ * itself as you scroll. Hover, focus or tap the notch and it widens to reveal the navigation. The name steps
+ * out of the way while you scroll down and comes back when you scroll up.
  */
 const LEFT = [
   { href: "/", label: "Home" },
@@ -31,7 +30,7 @@ function Shoulder({ flip = false }: { flip?: boolean }) {
   );
 }
 
-export function Header({ name, pushedIso }: { name: string; pushedIso: string | null }) {
+export function Header({ name }: { name: string }) {
   const reduce = useReducedMotion();
   const { scrollY, scrollYProgress } = useScroll();
   const eased = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
@@ -122,13 +121,7 @@ export function Header({ name, pushedIso }: { name: string; pushedIso: string | 
         <Shoulder flip />
       </div>
 
-      <m.div className="hdr-side right" initial={false} animate={sides} transition={spring}>
-        {pushedIso && (
-          <Link href="/lab" className="sync" title="Latest push to the research lab">
-            <span>Lab pushed <RelTime iso={pushedIso} /></span>
-          </Link>
-        )}
-      </m.div>
+      <div className="hdr-side right" aria-hidden />
     </header>
   );
 }
