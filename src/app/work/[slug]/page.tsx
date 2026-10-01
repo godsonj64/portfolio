@@ -6,6 +6,7 @@ import { Art } from "@/components/Art";
 import { AppIcon } from "@/components/AppIcon";
 import { DownloadCta, DownloadPanel, type BuildView } from "@/components/DownloadPanel";
 import { Steps } from "@/components/Steps";
+import { ScrollFx } from "@/components/motion/ScrollFx";
 import { bySlug, projects } from "@/content/projects";
 import { getLatestRelease } from "@/lib/github";
 import { buildsOf, stripV } from "@/lib/releases";
@@ -65,7 +66,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       <div className="wrap p-hero" data-reveal>
         <div className="p-frame">
-          <Art slug={p.slug} alt={`${p.name}: ${p.tagline}`} sizes="(min-width: 1500px) 1420px, 96vw" priority focal={p.focal} />
+          <ScrollFx className="p-frame-in" scale={[1.08, 1]} offset={["start end", "center center"]}>
+            <Art slug={p.slug} alt={`${p.name}: ${p.tagline}`} sizes="(min-width: 1500px) 1420px, 96vw" priority focal={p.focal} />
+          </ScrollFx>
         </div>
       </div>
 

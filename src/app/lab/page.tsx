@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "katex/dist/katex.min.css";
 import { ResearchList } from "@/components/ResearchList";
+import { Drift } from "@/components/motion/ScrollFx";
 import { RelTime } from "@/components/RelTime";
 import { LAB, RESEARCH } from "@/content/repos";
 import { getCommits, getExperiments, getHead, getLogs, getTree, type CommitInfo } from "@/lib/github";
@@ -77,8 +78,8 @@ export default async function Lab() {
       <section id="research" className="wrap lab-section" aria-labelledby="research-title">
         <header className="bighead" data-reveal>
           <h2 id="research-title" className="caps">
-            <span>Published</span>
-            <span className="indent">research</span>
+            <Drift from={-36} to={36}>Published</Drift>
+            <Drift from={36} to={-36} className="indent">research</Drift>
           </h2>
           <p className="bighead-note">Open-source architectures and methods. Every file is readable here, and every repository downloads as a .zip.</p>
         </header>

@@ -6,6 +6,8 @@ import { Feature } from "@/components/Feature";
 import { Tile } from "@/components/Tile";
 import { LabTile } from "@/components/LabTile";
 import { RelTime } from "@/components/RelTime";
+import { Drift, ScrollFx } from "@/components/motion/ScrollFx";
+import { ScrubText } from "@/components/motion/ScrubText";
 import { Mark } from "@/components/Mark";
 import { projects, bySlug } from "@/content/projects";
 import { LAB, RESEARCH } from "@/content/repos";
@@ -52,6 +54,7 @@ export default async function Home() {
         <Figure height={30} className="hero-figure" />
 
         <div className="wrap hero-copy">
+          <ScrollFx y={[0, -90]} opacity={[1, 0]} scale={[1, 0.97]} offset={["start start", "end start"]}>
           <p className="eyebrow reveal-line" style={{ ["--i" as string]: 0 }}>{site.name} · Portfolio</p>
           <h1 id="hero-title" className="display">
             <span className="line"><span style={{ ["--i" as string]: 1 }}>Software that</span></span>
@@ -65,6 +68,7 @@ export default async function Home() {
             <a className="pill" href="#work"><span className="pill-ico" aria-hidden>↓</span>See the work</a>
             <Link className="pill pill-ghost" href="/lab">Enter the lab</Link>
           </div>
+          </ScrollFx>
         </div>
 
         <div className="wrap hero-base">
@@ -88,8 +92,8 @@ export default async function Home() {
       <section id="work" className="section wrap" aria-labelledby="work-title">
         <header className="bighead" data-reveal>
           <h2 id="work-title" className="caps">
-            <span>Selected</span>
-            <span className="indent">work</span>
+            <Drift from={-36} to={36}>Selected</Drift>
+            <Drift from={36} to={-36} className="indent">work</Drift>
           </h2>
           <p className="bighead-note">Five products and one open lab. Every one of them runs on your own machine.</p>
         </header>
@@ -108,7 +112,7 @@ export default async function Home() {
         {thesis.map((t, i) => (
           <div key={t.title} data-reveal style={{ ["--d" as string]: i }}>
             <h3 className="caps">{t.title}</h3>
-            <p>{t.body}</p>
+            <ScrubText text={t.body} />
           </div>
         ))}
       </section>

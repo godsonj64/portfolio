@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Geist_Mono } from "next/font/google";
+import "lenis/dist/lenis.css";
 import "./globals.css";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { Loader } from "@/components/Loader";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -38,11 +40,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <a href="#main" className="skip">Skip to content</a>
-        <Loader />
-        <Nav />
-        <main id="main">{children}</main>
-        <Footer />
-        <RevealObserver />
+        <MotionProvider>
+          <Loader />
+          <Nav />
+          <main id="main">{children}</main>
+          <Footer />
+          <RevealObserver />
+        </MotionProvider>
       </body>
     </html>
   );
