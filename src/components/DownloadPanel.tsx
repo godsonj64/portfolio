@@ -48,7 +48,7 @@ export function DownloadPanel({ slug, builds, version, published }: { slug: stri
           ))}
         </div>
       ))}
-      <p className="dl-foot">Direct downloads, hosted on GitHub Releases. The links always point at the latest version.</p>
+      <p className="dl-foot">Direct downloads. The links always point at the latest version.</p>
     </div>
   );
 }

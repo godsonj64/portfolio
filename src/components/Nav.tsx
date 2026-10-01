@@ -18,7 +18,6 @@ export async function Nav() {
         <Link href="/#work">Work</Link>
         <Link href="/lab">Lab</Link>
         <Link href="/lab#research">Research</Link>
-        <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden> ↗</span></a>
       </nav>
       {head && (
         <Link href="/lab" className="sync" title="Latest push to the research lab">

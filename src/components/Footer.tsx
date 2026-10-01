@@ -32,17 +32,18 @@ export function Footer() {
             <li><Link href="/dl/code/nano-lab" prefetch={false}>Download .zip</Link></li>
           </ul>
         </nav>
-        <nav aria-label="Elsewhere">
-          <p className="eyebrow">Elsewhere</p>
-          <ul>
-            <li><a href={site.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
-            {site.email && <li><a href={`mailto:${site.email}`}>Email</a></li>}
-          </ul>
-        </nav>
+        {site.email && (
+          <nav aria-label="Contact">
+            <p className="eyebrow">Contact</p>
+            <ul>
+              <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+            </ul>
+          </nav>
+        )}
       </div>
       <div className="wrap footer-base">
         <span>© {new Date().getFullYear()} {site.name}</span>
-        <span>Built with Next.js · live data from GitHub</span>
+        <span>Built with Next.js</span>
       </div>
     </footer>
   );

@@ -4,6 +4,7 @@ import sanitizeHtml from "sanitize-html";
 import matter from "gray-matter";
 import katex from "katex";
 import { esc, highlightBlock, normLang } from "./highlight";
+import { codeRepos } from "@/content/repos";
 
 export type MdCtx = {
   /** repo slug, enables rewriting relative links/images to /code/... and /api/raw/... */
@@ -22,7 +23,30 @@ function normalize(path: string): string {
   return out.join("/");
 }
 
-function resolve(href: string, ctx: MdCtx, as: "link" | "image"): string {
+const OWNER = "godsonj64";
+
+/**
+ * Keeps visitors on this site: links into a repo the site publishes become on-site pages; every other GitHub
+ * link becomes plain text (null). Non-GitHub links and third-party images are left alone (undefined).
+ */
+function fromGitHub(href: string, as: "link" | "image"): string | null | undefined {
+  let u: URL;
+  try { u = new URL(href); } catch { return undefined; }
+  const host = u.hostname.toLowerCase();
+  if (host !== "github.com" && host !== "www.github.com" && host !== "raw.githubusercontent.com") return undefined;
+  const [owner, repo, ...rest] = u.pathname.split("/").filter(Boolean);
+  if (owner?.toLowerCase() !== OWNER) return as === "image" ? undefined : null;
+  const cfg = Object.values(codeRepos).find((r) => r.repo.toLowerCase() === (repo ?? "").replace(/\.git$/, "").toLowerCase());
+  if (!cfg) return null;
+  // github.com/o/r/blob|tree|raw/<ref>/<path>  ·  raw.githubusercontent.com/o/r/<ref>/<path>
+  const path = host === "raw.githubusercontent.com" ? rest.slice(1).join("/") : ["blob", "tree", "raw"].includes(rest[0]) ? rest.slice(2).join("/") : "";
+  if (as === "image" || host === "raw.githubusercontent.com" || rest[0] === "raw") return path ? `/api/raw/${cfg.slug}/${path}` : `/code/${cfg.slug}`;
+  return `/code/${cfg.slug}${path ? `/${path}` : ""}${u.hash}`;
+}
+
+function resolve(href: string, ctx: MdCtx, as: "link" | "image"): string | null {
+  const gh = fromGitHub(href, as);
+  if (gh !== undefined) return gh;
   if (/^(https?:|mailto:|data:image\/)/i.test(href) || href.startsWith("#")) return href;
   if (!ctx.repo) return href;
   const [p, hash] = href.split("#");
@@ -94,10 +118,13 @@ export async function renderMarkdown(src: string, ctx: MdCtx): Promise<string> {
       link({ href, title, tokens }) {
         const inner = this.parser.parseInline(tokens);
         const url = resolve(href, ctx, "link");
+        if (url === null) return inner; // the owner's unpublished repos: keep the words, drop the link
         return `<a href="${esc(url)}"${title ? ` title="${esc(title)}"` : ""}>${inner}</a>`;
       },
       image({ href, title, text }) {
-        return `<img src="${esc(resolve(href, ctx, "image"))}" alt="${esc(text)}"${title ? ` title="${esc(title)}"` : ""} loading="lazy">`;
+        const src = resolve(href, ctx, "image");
+        if (src === null) return esc(text);
+        return `<img src="${esc(src)}" alt="${esc(text)}"${title ? ` title="${esc(title)}"` : ""} loading="lazy">`;
       },
     },
   });
