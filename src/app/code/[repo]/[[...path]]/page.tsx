@@ -21,8 +21,9 @@ export const dynamicParams = true;
 const MAX_PREVIEW = 700 * 1024;
 const MAX_NOTEBOOK = 4 * 1024 * 1024; // notebooks carry their plots inline
 
-export function generateStaticParams() {
-  return Object.keys(codeRepos).map((repo) => ({ repo, path: [] as string[] }));
+// Rendered on first visit and then cached (ISR), so deploys don't spend GitHub API calls on every repo.
+export function generateStaticParams(): { repo: string; path: string[] }[] {
+  return [];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ repo: string; path?: string[] }> }): Promise<Metadata> {
