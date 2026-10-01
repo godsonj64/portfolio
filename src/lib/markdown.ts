@@ -2,6 +2,7 @@ import "server-only";
 import { Marked } from "marked";
 import sanitizeHtml from "sanitize-html";
 import matter from "gray-matter";
+import katex from "katex";
 import { esc, highlightBlock, normLang } from "./highlight";
 
 export type MdCtx = {
@@ -33,9 +34,46 @@ function resolve(href: string, ctx: MdCtx, as: "link" | "image"): string {
 const slugify = (s: string) =>
   s.toLowerCase().replace(/<[^>]+>/g, "").replace(/[^\p{L}\p{N}\s-]/gu, "").trim().replace(/\s+/g, "-");
 
+// Math is rendered by KaTeX into placeholders and swapped in *after* sanitising, so KaTeX's markup never
+// has to be allowed through the HTML sanitiser (and user HTML can never pose as math).
+const slot = (i: number) => `MATHSLOT${i}ENDSLOT`;
+const tex = (src: string, displayMode: boolean) =>
+  katex.renderToString(src, { displayMode, throwOnError: false, output: "htmlAndMathml", strict: "ignore", trust: false });
+
 export async function renderMarkdown(src: string, ctx: MdCtx): Promise<string> {
   const seen = new Map<string, number>();
+  const math: string[] = [];
   const md = new Marked({
+    extensions: [
+      {
+        name: "mathBlock",
+        level: "block",
+        start: (s: string) => { const i = s.indexOf("$$"); return i < 0 ? undefined : i; },
+        tokenizer(s: string) {
+          const m = /^\$\$([\s\S]+?)\$\$[^\S\n]*(?:\n|$)/.exec(s);
+          if (m) return { type: "mathBlock", raw: m[0], text: m[1].trim() };
+        },
+        renderer(tok) {
+          math.push(tex(tok.text, true));
+          return `<div class="math">${slot(math.length - 1)}</div>\n`;
+        },
+      },
+      {
+        name: "mathInline",
+        level: "inline",
+        start: (s: string) => { const i = s.indexOf("$"); return i < 0 ? undefined : i; },
+        tokenizer(s: string) {
+          const d = /^\$\$([\s\S]+?)\$\$/.exec(s); // display math inside a paragraph
+          if (d) return { type: "mathInline", raw: d[0], text: d[1].trim(), display: true };
+          const m = /^\$(?!\s)((?:\\.|[^\\$\n])+?)(?<!\s)\$(?!\d)/.exec(s); // $x$, but not "$5 and $10"
+          if (m) return { type: "mathInline", raw: m[0], text: m[1], display: false };
+        },
+        renderer(tok) {
+          math.push(tex(tok.text, !!tok.display));
+          return slot(math.length - 1);
+        },
+      },
+    ],
     gfm: true,
     async: true,
     walkTokens: async (tok) => {
@@ -66,7 +104,7 @@ export async function renderMarkdown(src: string, ctx: MdCtx): Promise<string> {
 
   const html = (await md.parse(src)) as string;
 
-  return sanitizeHtml(html, {
+  const clean = sanitizeHtml(html, {
     allowedTags: [
       "h1", "h2", "h3", "h4", "h5", "h6", "p", "a", "ul", "ol", "li", "blockquote", "code", "pre", "em", "strong", "del", "hr", "br",
       "table", "thead", "tbody", "tr", "th", "td", "img", "details", "summary", "span", "div", "input", "sup", "sub", "kbd", "figure", "figcaption",
@@ -79,7 +117,7 @@ export async function renderMarkdown(src: string, ctx: MdCtx): Promise<string> {
       span: ["class", "style"],
       th: ["align"],
       td: ["align"],
-      div: ["align"],
+      div: ["align", "class"],
       input: ["type", "checked", "disabled"],
       "*": ["id"],
     },
@@ -99,6 +137,7 @@ export async function renderMarkdown(src: string, ctx: MdCtx): Promise<string> {
       },
     },
   });
+  return math.length ? clean.replace(/MATHSLOT(\d+)ENDSLOT/g, (_, i) => math[Number(i)] ?? "") : clean;
 }
 
 /** Markdown file with optional YAML front matter: the front matter becomes a small key/value strip. */

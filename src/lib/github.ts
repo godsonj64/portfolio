@@ -43,6 +43,7 @@ export type RepoMeta = {
   pushedAt: string;
   description: string | null;
   license: string | null;
+  language: string | null;
   size: number;
 };
 
@@ -55,6 +56,7 @@ export async function getRepoMeta(owner: string, repo: string): Promise<RepoMeta
     pushedAt: r.pushed_at,
     description: r.description,
     license: r.license?.spdx_id ?? null,
+    language: r.language ?? null,
     size: r.size,
   };
 }

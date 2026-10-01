@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "katex/dist/katex.min.css";
+import { ResearchList } from "@/components/ResearchList";
 import { RelTime } from "@/components/RelTime";
-import { LAB } from "@/content/repos";
+import { LAB, RESEARCH } from "@/content/repos";
 import { getCommits, getExperiments, getHead, getLogs, getTree, type CommitInfo } from "@/lib/github";
 import { renderMarkdown } from "@/lib/markdown";
 import { dayKey, dayLabel, longDate, shortSha } from "@/lib/fmt";
@@ -9,7 +11,7 @@ import { dayKey, dayLabel, longDate, shortSha } from "@/lib/fmt";
 export const revalidate = 120;
 export const metadata: Metadata = {
   title: "The Lab — nano neural nets, in the open",
-  description: "Open research on very small neural networks: experiments, code and a daily log, browsable and downloadable from this site.",
+  description: "Open research on very small neural networks: DSOR, IARM, ARM, NanoQuant-X, TurboPress and more, plus a daily lab log. Browse and download the code right here.",
 };
 
 function groupByDay(commits: CommitInfo[]) {
@@ -43,15 +45,14 @@ export default async function Lab() {
   ]);
   const latest = logs[0];
   const latestHtml = latest ? await renderMarkdown(latest.body, { repo: LAB.slug, dir: "log" }) : null;
-  const files = tree.entries.filter((e) => e.type === "blob").length;
   const days = groupByDay(commits);
 
   const stats: [string, React.ReactNode][] = [
+    ["Research repos", String(RESEARCH.length)],
     ["Last push", <RelTime key="t" iso={head.date} />],
     ["Commits", commits.length >= 100 ? "100+" : String(commits.length)],
     ["Experiments", String(experiments.length)],
     ["Log entries", String(logs.length)],
-    ["Files", String(files)],
   ];
 
   return (
@@ -60,11 +61,11 @@ export default async function Lab() {
         <p className="eyebrow">The Lab</p>
         <h1 className="caps lab-h1">Nano neural nets, in the open.</h1>
         <p className="lede">
-          Experiments on very small neural networks. Everything is here: read the daily log, open any file, or take the whole repository with you. No detour through GitHub.
+          Research on very small neural networks: new architectures, memory models and low-bit compression, plus a daily lab log. Read any file or take a repository with you. No detour through GitHub.
         </p>
         <div className="cta">
-          <Link className="pill" href="/code/nano-lab"><span className="pill-ico" aria-hidden>↗</span>Browse the code</Link>
-          <a className="pill pill-ghost" href="/dl/code/nano-lab" download>Download repo (.zip)</a>
+          <a className="pill" href="#research"><span className="pill-ico" aria-hidden>↓</span>Research</a>
+          <Link className="pill pill-ghost" href="/code/nano-lab">Lab notebook</Link>
         </div>
         <dl className="stats">
           {stats.map(([k, v]) => (
@@ -72,6 +73,17 @@ export default async function Lab() {
           ))}
         </dl>
       </header>
+
+      <section id="research" className="wrap lab-section" aria-labelledby="research-title">
+        <header className="bighead" data-reveal>
+          <h2 id="research-title" className="caps">
+            <span>Published</span>
+            <span className="indent">research</span>
+          </h2>
+          <p className="bighead-note">Open-source architectures and methods. Every file is readable here, and every repository downloads as a .zip.</p>
+        </header>
+        <ResearchList />
+      </section>
 
       {latest && latestHtml && (
         <section className="wrap lab-section" aria-labelledby="latest-title" data-reveal>

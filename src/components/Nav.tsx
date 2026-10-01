@@ -16,7 +16,7 @@ export async function Nav() {
       <nav aria-label="Primary" className="nav-links">
         <Link href="/#work">Work</Link>
         <Link href="/lab">Lab</Link>
-        <Link href="/code/nano-lab">Code</Link>
+        <Link href="/lab#research">Research</Link>
         <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden> ↗</span></a>
       </nav>
       {head && (

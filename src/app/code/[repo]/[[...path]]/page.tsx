@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "katex/dist/katex.min.css";
 import { notFound } from "next/navigation";
 import { CodeView } from "@/components/CodeView";
 import { CopyButton } from "@/components/CopyButton";
@@ -9,6 +10,7 @@ import { codeRepos } from "@/content/repos";
 import { getHead, getText, getTree, listDir } from "@/lib/github";
 import { highlightLines, langFor } from "@/lib/highlight";
 import { renderMarkdownDoc } from "@/lib/markdown";
+import { renderNotebook } from "@/lib/notebook";
 import { kindOf } from "@/lib/mime";
 import { bytes, shortSha } from "@/lib/fmt";
 import { hrefFor, nest, rawHref } from "@/lib/tree";
@@ -17,6 +19,7 @@ export const revalidate = 120;
 export const dynamicParams = true;
 
 const MAX_PREVIEW = 700 * 1024;
+const MAX_NOTEBOOK = 4 * 1024 * 1024; // notebooks carry their plots inline
 
 export function generateStaticParams() {
   return Object.keys(codeRepos).map((repo) => ({ repo, path: [] as string[] }));
@@ -114,15 +117,19 @@ export default async function CodePage({ params }: { params: Promise<{ repo: str
       body = <div className="media"><img src={raw} alt={path} /></div>;
     } else if (kind === "binary") {
       body = <p className="note">Binary file · {bytes(size)}. Use Download to save it.</p>;
-    } else if (size > MAX_PREVIEW) {
+    } else if (size > (kind === "notebook" ? MAX_NOTEBOOK : MAX_PREVIEW)) {
       body = <p className="note">This file is {bytes(size)}, too large to preview here. Use Download or Raw.</p>;
     } else {
       const text = await getText(cfg, head.sha, path);
       if (text == null) notFound();
+      const ctx = { repo, dir: path.split("/").slice(0, -1).join("/") };
+      const nbHtml = kind === "notebook" ? await renderNotebook(text, ctx) : null;
       if (text.slice(0, 8000).includes("\u0000")) {
         body = <p className="note">Binary file · {bytes(size)}. Use Download to save it.</p>;
+      } else if (nbHtml !== null) {
+        body = <div className="doc notebook"><div className="prose nb" dangerouslySetInnerHTML={{ __html: nbHtml }} /></div>;
       } else if (kind === "markdown") {
-        const doc = await renderMarkdownDoc(text, { repo, dir: path.split("/").slice(0, -1).join("/") });
+        const doc = await renderMarkdownDoc(text, ctx);
         body = <div className="doc"><Meta pairs={doc.meta} /><div className="prose" dangerouslySetInnerHTML={{ __html: doc.html }} /></div>;
       } else {
         const lines = await highlightLines(text.replace(/\n$/, ""), langFor(path));
@@ -134,7 +141,7 @@ export default async function CodePage({ params }: { params: Promise<{ repo: str
   return (
     <div className="wrap code-page">
       <header className="code-head">
-        <p className="eyebrow">Code</p>
+        <p className="eyebrow">{repo === "nano-lab" ? "Lab notebook" : `Research${cfg.name ? ` · ${cfg.name}` : ""}`}</p>
         <h1 className="code-title">
           <Link href={hrefFor(repo, "")}>{cfg.title}</Link>
           {crumbs.map((c, i) => (

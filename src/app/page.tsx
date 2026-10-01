@@ -8,7 +8,7 @@ import { LabTile } from "@/components/LabTile";
 import { RelTime } from "@/components/RelTime";
 import { Mark } from "@/components/Mark";
 import { projects, bySlug } from "@/content/projects";
-import { LAB } from "@/content/repos";
+import { LAB, RESEARCH } from "@/content/repos";
 import { icons } from "@/lib/art";
 import { getCommits, getHead, getLatestRelease, getLogs, getTree } from "@/lib/github";
 import { stripV } from "@/lib/releases";
@@ -119,11 +119,16 @@ export default async function Home() {
             <p className="label dark">The Lab · open research</p>
             <h2 id="lab-title" className="caps">Nano neural nets, in the open.</h2>
             <p>
-              A running notebook of experiments on very small neural networks: code, results and daily logs, browsable and downloadable right here, with no detour through GitHub.
+              New architectures, memory models and low-bit compression for very small neural networks, plus a daily lab notebook. Every file is browsable and downloadable right here, with no detour through GitHub.
             </p>
+            <ul className="rchips" aria-label="Research">
+              {RESEARCH.map((r) => (
+                <li key={r.slug}><Link href={`/code/${r.slug}`}>{r.title}</Link></li>
+              ))}
+            </ul>
             <div className="cta">
               <Link className="pill pill-dark" href="/lab"><span className="pill-ico" aria-hidden>↗</span>Open the lab</Link>
-              <Link className="pill pill-line" href="/dl/code/nano-lab" prefetch={false}>Download repo (.zip)</Link>
+              <Link className="pill pill-line" href="/lab#research">All research</Link>
             </div>
           </div>
           <div className="banner-panel">

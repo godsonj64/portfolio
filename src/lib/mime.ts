@@ -13,11 +13,12 @@ export const extOf = (path: string) => {
   return base.includes(".") ? base.split(".").pop()!.toLowerCase() : "";
 };
 
-export type FileKind = "image" | "markdown" | "binary" | "text";
+export type FileKind = "image" | "markdown" | "notebook" | "binary" | "text";
 export function kindOf(path: string): FileKind {
   const e = extOf(path);
   if (e in IMG) return "image";
   if (e === "md" || e === "markdown" || e === "mdx") return "markdown";
+  if (e === "ipynb") return "notebook";
   if (BINARY.has(e)) return "binary";
   return "text";
 }

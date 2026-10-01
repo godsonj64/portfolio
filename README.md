@@ -1,6 +1,6 @@
 # portfolio
 
-Godson Johnson's portfolio: five local-first desktop products (Cicada, Timbre, ElectroPlate, AXIO Medical, Talenta) and **the Lab**, a live window onto [`godsonj64/nano-lab`](https://github.com/godsonj64/nano-lab).
+Godson Johnson's portfolio: five local-first desktop products (Cicada, Timbre, ElectroPlate, AXIO Medical, Talenta) and **the Lab**: published neural-net research (DSOR, IARM, IARM-X, ARM, EAN, AKT, NanoQuant-X, TurboPress, AMaC) plus a live window onto [`godsonj64/nano-lab`](https://github.com/godsonj64/nano-lab).
 
 Next.js 16 (App Router), plain CSS, no UI libraries. Pages are static and refreshed by ISR plus a GitHub push webhook.
 
@@ -10,10 +10,11 @@ Next.js 16 (App Router), plain CSS, no UI libraries. Pages are static and refres
 |---|---|---|
 | Version chips, download panels | latest release of each project's **public** releases repo | `src/content/projects.ts` → `releases` |
 | `/lab` | `nano-lab`: `log/*.md`, `experiments/*/README.md`, commits | |
-| `/code/nano-lab/...` | `nano-lab` tree + files | the **only** browsable repo (`src/content/repos.ts`) |
+| `/lab#research` | each research repo's language and last push | list in `src/content/repos.ts` |
+| `/code/<repo>/...` | repo tree + files: markdown with LaTeX math, highlighted code, Jupyter notebooks | **only** the repos in `src/content/repos.ts` |
 | "Lab pushed …" in the nav | `nano-lab` head commit | |
 
-Private repos are refused even when the token could read them, and product source code is never served.
+Private repos are refused even when the token could read them, and product source code is never served. To publish another research repo, add one entry to `src/content/repos.ts`.
 
 ### Direct links (visitors never land on GitHub)
 
@@ -21,9 +22,9 @@ Private repos are refused even when the token could read them, and product sourc
 |---|---|
 | `/dl/<project>/mac` · `/windows` · `/linux` | latest installer for that OS |
 | `/dl/<project>/<key>` | a specific build, e.g. `mac-universal-installer-dmg` (stable across versions) |
-| `/dl/code/nano-lab` | whole lab repo as .zip |
-| `/api/zip/nano-lab?path=experiments/foo` | one folder as .zip |
-| `/api/raw/nano-lab/<path>` (`?download=1`) | one file |
+| `/dl/code/<repo>` | a whole lab/research repo as .zip |
+| `/api/zip/<repo>?path=experiments/foo` | one folder as .zip |
+| `/api/raw/<repo>/<path>` (`?download=1`) | one file |
 
 ## Develop
 
@@ -43,7 +44,7 @@ npm run dev      # unauthenticated: 60 GitHub API calls/hour
    - `GITHUB_TOKEN`: a fine-grained token, **public repositories, read-only** (raises the API limit to 5,000/h).
    - `GITHUB_WEBHOOK_SECRET`: any long random string.
    - `NEXT_PUBLIC_SITE_URL`: your production URL (optional; used for canonical/OG URLs).
-3. In `godsonj64/nano-lab` → Settings → Webhooks: payload URL `https://<your-domain>/api/revalidate`, content type `application/json`, the same secret, event **Just the push event**. Add the same webhook (Releases event) to the releases repos if you want new versions to appear instantly.
+3. In `godsonj64/nano-lab` (and any research repo you push to) → Settings → Webhooks: payload URL `https://<your-domain>/api/revalidate`, content type `application/json`, the same secret, event **Just the push event**. Add the same webhook (Releases event) to the releases repos if you want new versions to appear instantly.
 
 Without the webhook everything still updates within ~2 minutes.
 

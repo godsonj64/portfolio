@@ -495,6 +495,40 @@ details[open] > summary .ft-ico { transform: rotate(90deg); }
 .prose th { color: var(--fg); background: rgba(255, 255, 255, 0.03); }
 .prose input[type="checkbox"] { margin-right: 0.5em; }
 
+
+/* Research list (lab page) */
+.research { display: grid; gap: clamp(40px, 5vw, 72px); }
+.rgroup-label { margin-bottom: 8px; }
+.rgroup ul { border-top: 1px solid var(--line-2); }
+.rrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: clamp(20px, 2.4vw, 32px) 0; border-bottom: 1px solid var(--line); }
+.rrow-main { display: grid; grid-template-columns: clamp(200px, 26vw, 380px) minmax(0, 1fr); gap: clamp(16px, 3vw, 48px); align-items: baseline; }
+.rrow-main h3 { font-size: clamp(1.6rem, 2.9vw, 3rem); white-space: nowrap; transition: color 0.3s; }
+.rrow-main:hover h3 { color: #fff; }
+.rrow-name { font-weight: 700; color: var(--fg); font-size: 15.5px; }
+.rrow-blurb { margin-top: 6px; color: var(--fg-3); font-size: 14.5px; max-width: 70ch; }
+.rrow-side { display: grid; justify-items: end; gap: 10px; }
+.rrow-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--fg-3); white-space: nowrap; }
+@media (max-width: 860px) { .rrow { grid-template-columns: 1fr; } .rrow-main { grid-template-columns: 1fr; gap: 8px; } .rrow-side { justify-items: start; } }
+.rchips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.rchips a { display: inline-block; padding: 6px 12px; border-radius: 999px; border: 1.5px solid rgba(7, 7, 10, 0.18); font-weight: 800; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.01em; color: #07070a; transition: background 0.25s, color 0.25s, border-color 0.25s; }
+.rchips a:hover { background: #07070a; color: #f1f1f5; border-color: #07070a; }
+.prose .math { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.prose .katex { font-size: 1.06em; color: var(--fg); }
+.prose .katex-display { margin: 0.9em 0; overflow-x: auto; overflow-y: hidden; }
+
+
+/* Jupyter notebooks */
+.nb { max-width: none; }
+.nb > * + * { margin-top: 18px; }
+.nb-md { max-width: 78ch; }
+.nb-cell { position: relative; }
+.nb-in { display: block; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--fg-4); }
+.nb-cell pre.code { margin-top: 0; }
+.nb-out { margin: 8px 0 0; padding: 12px 16px; border-left: 2px solid var(--line-2); font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--fg-2); white-space: pre-wrap; overflow-x: auto; max-height: 420px; }
+.nb-out.err { border-left-color: #ff6b7d; color: #ffb3bd; }
+.nb-img { margin-top: 10px; padding: 12px; border-radius: 12px; background: #fff; display: inline-block; max-width: 100%; }
+.nb-img img { border-radius: 4px; max-width: 100%; height: auto; }
+
 /* ─────────────────────────────────────────────────────────────
    Reduced motion
    ───────────────────────────────────────────────────────────── */

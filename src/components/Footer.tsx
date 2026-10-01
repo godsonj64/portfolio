@@ -26,8 +26,9 @@ export function Footer() {
         <nav aria-label="Lab">
           <p className="eyebrow">Lab</p>
           <ul>
+            <li><Link href="/lab#research">Research</Link></li>
             <li><Link href="/lab">Daily log</Link></li>
-            <li><Link href="/code/nano-lab">Browse code</Link></li>
+            <li><Link href="/code/nano-lab">Lab notebook</Link></li>
             <li><Link href="/dl/code/nano-lab" prefetch={false}>Download .zip</Link></li>
           </ul>
         </nav>
