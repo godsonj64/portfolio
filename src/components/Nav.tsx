@@ -6,7 +6,8 @@ import { LAB } from "@/content/repos";
 import { site } from "@/content/site";
 
 export async function Nav() {
-  const head = await getHead(LAB);
+  // the "Lab pushed" chip is decorative: never let a GitHub hiccup take the whole page down with it
+  const head = await getHead(LAB).catch(() => null);
   return (
     <header className="nav">
       <Link href="/" className="brand" aria-label={`${site.name} — home`}>

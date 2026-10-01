@@ -23,14 +23,23 @@ function authHeaders(): Record<string, string> {
   };
 }
 
+/**
+ * Thrown when GitHub is unreachable or rate-limiting (as opposed to a genuine 404).
+ * Letting it propagate is deliberate: an ISR regeneration that throws keeps serving the last good page,
+ * and a build that throws leaves the previous deployment live, instead of caching a half-empty page.
+ */
+export class GitHubUnavailable extends Error {}
+
 async function api<T>(path: string, revalidate = 300, tags: string[] = []): Promise<T | null> {
+  let res: Response;
   try {
-    const res = await fetch(API + path, { headers: authHeaders(), next: { revalidate, tags: [GH_TAG, ...tags] } });
-    if (!res.ok) return null;
-    return (await res.json()) as T;
-  } catch {
-    return null;
+    res = await fetch(API + path, { headers: authHeaders(), next: { revalidate, tags: [GH_TAG, ...tags] } });
+  } catch (e) {
+    throw new GitHubUnavailable(`GitHub unreachable: ${path}`, { cause: e });
   }
+  if (res.status === 404) return null; // missing, or private and invisible to us
+  if (!res.ok) throw new GitHubUnavailable(`GitHub ${res.status} for ${path}`);
+  return (await res.json()) as T;
 }
 
 const encodePath = (p: string) => p.split("/").map(encodeURIComponent).join("/");
