@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Loading screen: a luminous comet traces a lemniscate (∞) over a faint ghost track while concentric rings pulse
- * outward and the hue drifts between the two lobes. Inspired by the "guanxian" loader on Dribbble; drawn from scratch.
+ * Loading screen: a luminous comet traces a lemniscate (∞) over a faint ghost track while the hue drifts between
+ * the two lobes. Inspired by the "guanxian" loader on Dribbble; drawn from scratch.
  *
  * It is shown once per browser session, skipped for reduced-motion, and released as soon as fonts are ready and a
  * short minimum has elapsed (never longer than MAX_MS).
@@ -135,7 +135,6 @@ export function Loader() {
   if (gone) return null;
   return (
     <div className="loader" ref={root} role="status" aria-live="polite" aria-label="Loading">
-      <div className="loader-rings" aria-hidden />
       <canvas ref={canvas} className="loader-canvas" style={{ width: 420, height: 240 }} aria-hidden />
       <p className="loader-text">Loading<span aria-hidden>…</span></p>
     </div>

@@ -90,21 +90,12 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 .loader {
   position: fixed; inset: 0; z-index: 200;
   display: grid; place-content: center; justify-items: center; gap: 4px;
-  background: radial-gradient(62% 56% at 50% 46%, #0e0a26 0%, #07060c 55%, #030305 100%);
+  background: var(--bg);
   transition: opacity 0.85s var(--ease), transform 1s var(--ease), visibility 0s 1s;
 }
 .loader.done { opacity: 0; transform: scale(1.035); visibility: hidden; pointer-events: none; }
 .no-loader .loader { display: none; }
 @media (scripting: none) { .loader { display: none; } }
-.loader-rings {
-  position: absolute; left: 50%; top: 46%; width: min(125vmax, 1300px); aspect-ratio: 1; border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: repeating-radial-gradient(circle at center, rgba(150, 130, 255, 0.075) 0 1.5px, transparent 1.5px 58px);
-  -webkit-mask: radial-gradient(circle, #000 0, rgba(0, 0, 0, 0.55) 34%, transparent 60%);
-  mask: radial-gradient(circle, #000 0, rgba(0, 0, 0, 0.55) 34%, transparent 60%);
-  animation: rings 3.8s ease-in-out infinite;
-}
-@keyframes rings { 0%, 100% { transform: translate(-50%, -50%) scale(0.93); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } }
 .loader-canvas { position: relative; max-width: 92vw; height: auto !important; }
 .loader-text { position: relative; margin-top: -10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6d6d8e; }
 
