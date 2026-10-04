@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Starfield } from "@/components/Starfield";
-import { Figure } from "@/components/Figure";
+import { HeroArt } from "@/components/HeroArt";
 import { Ribbons } from "@/components/Ribbons";
 import { Feature } from "@/components/Feature";
 import { Tile } from "@/components/Tile";
@@ -47,11 +46,7 @@ export default async function Home() {
   return (
     <>
       <section className="hero" aria-labelledby="hero-title">
-        <Starfield />
-        <div className="hero-glow" aria-hidden />
-        <div className="hero-ground" aria-hidden />
-        <div className="hero-horizon" aria-hidden />
-        <Figure height={30} className="hero-figure" />
+        <HeroArt />
 
         <div className="wrap hero-copy">
           <ScrollFx y={[0, -90]} opacity={[1, 0]} scale={[1, 0.97]} offset={["start start", "end start"]}>

@@ -131,14 +131,38 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 /* ─────────────────────────────────────────────────────────────
    Hero
    ───────────────────────────────────────────────────────────── */
-.hero { position: relative; isolation: isolate; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; overflow: hidden; background: radial-gradient(90% 60% at 78% 6%, rgba(40, 90, 255, 0.1), transparent 70%), var(--bg); }
-.starfield { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.hero-glow { position: absolute; inset: auto 0 var(--base) 0; height: 52vh; z-index: 1; background: radial-gradient(68% 100% at 50% 100%, rgba(92, 96, 255, 0.34), rgba(60, 70, 210, 0.11) 46%, transparent 76%); pointer-events: none; }
-.hero-ground { position: absolute; inset: auto 0 0 0; height: var(--base); z-index: 1; background: linear-gradient(#0b0b14, #050507 78%); }
-.hero-horizon { position: absolute; inset: auto 0 var(--base) 0; height: 1px; z-index: 2; background: linear-gradient(90deg, transparent, rgba(150, 160, 255, 0.55) 18%, rgba(255, 255, 255, 0.95) 50%, rgba(150, 160, 255, 0.55) 82%, transparent); box-shadow: 0 0 46px 7px rgba(105, 115, 255, 0.28); }
-.hero-figure { position: absolute; z-index: 3; left: 72%; bottom: calc(var(--base) - 2px); color: #020203; filter: drop-shadow(0 0 1.5px rgba(190, 200, 255, 0.35)); }
+.hero { position: relative; isolation: isolate; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; overflow: hidden; background: #07081a; }
+
+/* the baked launch (scripts/hero): seven stacked layers, a wide and a tall composition */
+.hero-art { position: absolute; inset: 0; z-index: 0; isolation: isolate; pointer-events: none; background: var(--lq-wide) var(--fx-wide) var(--fy-wide) / cover no-repeat, #07081a; }
+.hero-layer, .hero-layer-in { position: absolute; inset: 0; will-change: transform; }
+.hero-layer-in { inset: -2.5%; }
+.hero-layer picture, .hero-layer img { width: 100%; height: 100%; max-width: none; }
+.hero-layer img { object-fit: cover; object-position: var(--fx-wide) var(--fy-wide); }
+.hero-l-glow { mix-blend-mode: screen; }
+.hero-l-glow img { animation: exhaust 2.4s steps(1, end) infinite; }
+.hero-l-rocket img { animation: rumble 0.32s steps(2, end) infinite; }
+@keyframes exhaust { 0% { opacity: 1; } 18% { opacity: 0.86; } 31% { opacity: 0.97; } 47% { opacity: 0.9; } 63% { opacity: 1; } 79% { opacity: 0.88; } 91% { opacity: 0.95; } }
+@keyframes rumble { 0% { transform: translate(0, 0); } 50% { transform: translate(0.4px, -0.5px); } }
+/* keeps the copy and the ticker readable and lets the art settle into the page below */
+.hero-scrim {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 6, 16, 0.62) 0%, rgba(5, 6, 16, 0.42) 32%, rgba(5, 6, 16, 0.08) 56%, transparent 66%),
+    linear-gradient(180deg, rgba(5, 6, 16, 0.38) 0%, transparent 16%, transparent 80%, rgba(5, 5, 7, 0.42) 91%, var(--bg) 100%);
+}
+@media (max-aspect-ratio: 4/5) {
+  .hero-art { background-image: var(--lq-tall); background-position: var(--fx-tall) var(--fy-tall); }
+  .hero-layer img { object-position: var(--fx-tall) var(--fy-tall); }
+  .hero-scrim {
+    background:
+      linear-gradient(180deg, rgba(5, 6, 16, 0.3) 0%, rgba(5, 6, 16, 0.08) 12%, rgba(5, 6, 16, 0.36) 24%, rgba(5, 6, 16, 0.44) 52%, rgba(5, 6, 16, 0.3) 70%, rgba(5, 5, 7, 0.62) 87%, var(--bg) 100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) { .hero-l-glow img, .hero-l-rocket img { animation: none; } }
 .hero-copy { position: relative; z-index: 4; align-self: center; padding-top: calc(var(--nav) + 5vh); padding-bottom: calc(var(--base) + 2vh); }
 .hero-copy .display { margin-top: 20px; }
+.hero-copy .display, .hero-copy .lede, .hero-copy .eyebrow, .ticker { text-shadow: 0 1px 16px rgba(4, 5, 14, 0.55); }
 .hero-copy .lede { margin-top: 30px; }
 .hero-base { position: relative; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 20px; height: var(--base); margin-top: calc(var(--base) * -1); }
 .ticker { display: flex; flex-wrap: wrap; gap: 10px 26px; }
@@ -149,7 +173,7 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 .scroll { position: relative; font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--fg-4); padding-right: 46px; }
 .scroll::after { content: ""; position: absolute; right: 0; top: 50%; width: 32px; height: 1px; background: linear-gradient(90deg, var(--fg-4), transparent); transform-origin: left; animation: scan 2.6s var(--ease) infinite; }
 @keyframes scan { 0% { transform: scaleX(0); } 55% { transform: scaleX(1); } 100% { transform: scaleX(1); opacity: 0; } }
-@media (max-width: 760px) { .scroll { display: none; } :root { --base: 150px; } .hero-figure { left: 78%; } }
+@media (max-width: 760px) { .scroll { display: none; } :root { --base: 150px; } }
 
 /* ─────────────────────────────────────────────────────────────
    Sections

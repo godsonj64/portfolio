@@ -10,3 +10,5 @@ next-env.d.ts
 .DS_Store
 .claude/
 .env*
+.hero-bake
+__pycache__

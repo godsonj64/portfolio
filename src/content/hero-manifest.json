@@ -1,0 +1,598 @@
+{
+  "wide": {
+    "width": 3456,
+    "height": 1920,
+    "focus": [
+      66,
+      42
+    ],
+    "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAwBQCdASogABIAPrVSok0nJKMiKAgA4BaJZAC1GvIIdWd6gO4UfWeANL1cZCPsXfJkgAD+/m5cH1C1tYn6nAIufL2/JNrLiuS6dosNzVgEKlV0FZdCUEZVZnKv0KdVB0QLh+GwtB2SEfVS+28zkzYxmrAVMn3i4p68V01CIN0tOs2R0ur7EfpYuqMgYbikttrgmmLq9Viv5WCtSYBaJs+zr5/cI+v1n5Q0ZXFEn24c3SbHciAAAA==",
+    "layers": {
+      "sky": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-sky-1280.0276f0d9.avif",
+            "bytes": 94085
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-sky-1920.6e299ec4.avif",
+            "bytes": 169975
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-sky-2560.0e689e7c.avif",
+            "bytes": 274948
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-sky-3456.77f81472.avif",
+            "bytes": 409187
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-sky-1280.0bc312d9.webp",
+            "bytes": 120612
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-sky-1920.67b6602c.webp",
+            "bytes": 241542
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-sky-2560.19d790a2.webp",
+            "bytes": 358078
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-sky-3456.5801ec65.webp",
+            "bytes": 546446
+          }
+        ]
+      },
+      "earth": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-earth-1280.e87ce64e.avif",
+            "bytes": 14403
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-earth-1920.7b127c9d.avif",
+            "bytes": 24461
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-earth-2560.ce04b20e.avif",
+            "bytes": 36319
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-earth-3456.1e5ecc95.avif",
+            "bytes": 52381
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-earth-1280.f0e915e0.webp",
+            "bytes": 23116
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-earth-1920.678dffb8.webp",
+            "bytes": 42116
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-earth-2560.34cda3a5.webp",
+            "bytes": 67484
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-earth-3456.a1f60042.webp",
+            "bytes": 101932
+          }
+        ]
+      },
+      "back": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-back-1280.fa9dd6f6.avif",
+            "bytes": 64321
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-back-1920.b9bb2ccc.avif",
+            "bytes": 110039
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-back-2560.78a44646.avif",
+            "bytes": 154743
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-back-3456.7d181b00.avif",
+            "bytes": 209494
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-back-1280.f3bbc86d.webp",
+            "bytes": 108616
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-back-1920.134dd46e.webp",
+            "bytes": 198556
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-back-2560.b46fab1f.webp",
+            "bytes": 301136
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-back-3456.df09c911.webp",
+            "bytes": 405572
+          }
+        ]
+      },
+      "rocket": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-rocket-1280.0d5b02d1.avif",
+            "bytes": 8192
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-rocket-1920.44ba42b3.avif",
+            "bytes": 12786
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-rocket-2560.8a1a64b1.avif",
+            "bytes": 17858
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-rocket-3456.87452979.avif",
+            "bytes": 15684
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-rocket-1280.e0675f5c.webp",
+            "bytes": 19330
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-rocket-1920.32938040.webp",
+            "bytes": 35184
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-rocket-2560.37b378c9.webp",
+            "bytes": 54492
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-rocket-3456.778b6018.webp",
+            "bytes": 66672
+          }
+        ]
+      },
+      "glow": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-glow-1280.849c42de.avif",
+            "bytes": 2285
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-glow-1920.aa28d48f.avif",
+            "bytes": 3355
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-glow-2560.458afbc8.avif",
+            "bytes": 4450
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-glow-3456.2705bea9.avif",
+            "bytes": 6038
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-glow-1280.daa8460c.webp",
+            "bytes": 4574
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-glow-1920.1757a6a2.webp",
+            "bytes": 8236
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-glow-2560.5690e15f.webp",
+            "bytes": 13090
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-glow-3456.499d2b2c.webp",
+            "bytes": 21118
+          }
+        ]
+      },
+      "front": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-front-1280.62bff478.avif",
+            "bytes": 29511
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-front-1920.2dce1c63.avif",
+            "bytes": 50646
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-front-2560.a2cdc59d.avif",
+            "bytes": 71247
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-front-3456.77c3fa90.avif",
+            "bytes": 95228
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-front-1280.73823cb6.webp",
+            "bytes": 49590
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-front-1920.1b6e5818.webp",
+            "bytes": 88466
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-front-2560.2b8e485e.webp",
+            "bytes": 132596
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-front-3456.1bfa16ca.webp",
+            "bytes": 178820
+          }
+        ]
+      },
+      "fore": {
+        "avif": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-fore-1280.9dd7f8d2.avif",
+            "bytes": 5619
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-fore-1920.a4330b8c.avif",
+            "bytes": 8944
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-fore-2560.62cbfc7e.avif",
+            "bytes": 12588
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-fore-3456.8906d76a.avif",
+            "bytes": 17039
+          }
+        ],
+        "webp": [
+          {
+            "w": 1280,
+            "src": "/hero/wide-fore-1280.2561cc54.webp",
+            "bytes": 10878
+          },
+          {
+            "w": 1920,
+            "src": "/hero/wide-fore-1920.d1673952.webp",
+            "bytes": 19838
+          },
+          {
+            "w": 2560,
+            "src": "/hero/wide-fore-2560.4b393a90.webp",
+            "bytes": 30746
+          },
+          {
+            "w": 3456,
+            "src": "/hero/wide-fore-3456.b6d33514.webp",
+            "bytes": 44610
+          }
+        ]
+      }
+    }
+  },
+  "tall": {
+    "width": 1320,
+    "height": 2560,
+    "focus": [
+      66,
+      38
+    ],
+    "lqip": "data:image/webp;base64,UklGRr4BAABXRUJQVlA4ILIBAACwCgCdASogAD4APrVKokunJCMhrBqpmOAWiWIAp0d2x9EWxavnoqpx4vAgrKLGeHBaGoOFFhASF9vrpZwr1c5Ip17yRiTABLEvn3AImtwTXrFBMCJ2yq6b4D56xyAAAP7+oDe2Rmal7MQJ1Q3Vn95yOcNirNtuC28+RmBu5RYrrsk1vPf1iY+XZ8phb6NkYm00z+BXe/xdos5XfW1iLO59vUpf4YIhw0KLO9FvVjZxBt+pr6+yiK/lHWt+CeHAxxzpIY34kzGvk87+MjPH0ehbXPsKEvNaCK2j0ScLuSMQNhPnofNkrRyOLptsqoPHXTI2pg+nPAW4NP0SYIRBStxmHTLSDeRNCfPyYFrEbGeIcNJDBqG9BSRY8CYynCOEXw8EgjiZ3GtVztCLX2iZXsCTTL7wui5IL89Rcoik3nJ+pHidhGQkFHsjuQpUPubY025FM1+6jBmCX1gqGXZTc58IAbAdP6785jY7jrsfIgU7V62IZrdfKhPndvGl15B0UKJQ0YoyY22XGglEoaTLmeyreWg3EpZX6EM+Amyfxbm9bNwC41qXAbwL6GHz70rmSwwAAA==",
+    "layers": {
+      "sky": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-sky-640.732db64e.avif",
+            "bytes": 75012
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-sky-960.2ecb1d4d.avif",
+            "bytes": 135173
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-sky-1320.3029fc5b.avif",
+            "bytes": 199535
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-sky-640.853fabbc.webp",
+            "bytes": 99428
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-sky-960.59eb0a88.webp",
+            "bytes": 177324
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-sky-1320.51c8cd99.webp",
+            "bytes": 257518
+          }
+        ]
+      },
+      "earth": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-earth-640.3c303b48.avif",
+            "bytes": 14792
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-earth-960.ec600f82.avif",
+            "bytes": 24885
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-earth-1320.0718fd2d.avif",
+            "bytes": 37804
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-earth-640.c863f5f1.webp",
+            "bytes": 23946
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-earth-960.d229a6c4.webp",
+            "bytes": 42708
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-earth-1320.197eed9e.webp",
+            "bytes": 66494
+          }
+        ]
+      },
+      "back": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-back-640.fd6dc35a.avif",
+            "bytes": 56804
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-back-960.3a70405b.avif",
+            "bytes": 90382
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-back-1320.62826a27.avif",
+            "bytes": 130507
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-back-640.25e78b76.webp",
+            "bytes": 100314
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-back-960.77bbd40c.webp",
+            "bytes": 176870
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-back-1320.6aba9da1.webp",
+            "bytes": 251464
+          }
+        ]
+      },
+      "rocket": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-rocket-640.09494725.avif",
+            "bytes": 9826
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-rocket-960.5834c9a8.avif",
+            "bytes": 16620
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-rocket-1320.5e103a1f.avif",
+            "bytes": 13928
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-rocket-640.cc9c6573.webp",
+            "bytes": 23936
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-rocket-960.ea9fbc83.webp",
+            "bytes": 46648
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-rocket-1320.bd3ed782.webp",
+            "bytes": 54464
+          }
+        ]
+      },
+      "glow": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-glow-640.4af6361c.avif",
+            "bytes": 2556
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-glow-960.8eacf8e0.avif",
+            "bytes": 3730
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-glow-1320.bcb5b731.avif",
+            "bytes": 5169
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-glow-640.52bb1957.webp",
+            "bytes": 5430
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-glow-960.06c783e1.webp",
+            "bytes": 9444
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-glow-1320.053f02a3.webp",
+            "bytes": 15150
+          }
+        ]
+      },
+      "front": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-front-640.60193da6.avif",
+            "bytes": 36399
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-front-960.b50214c0.avif",
+            "bytes": 57037
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-front-1320.074511fa.avif",
+            "bytes": 81615
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-front-640.fb6e03f8.webp",
+            "bytes": 62570
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-front-960.c6f7dc21.webp",
+            "bytes": 107084
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-front-1320.72211551.webp",
+            "bytes": 153570
+          }
+        ]
+      },
+      "fore": {
+        "avif": [
+          {
+            "w": 640,
+            "src": "/hero/tall-fore-640.bc5e2cb1.avif",
+            "bytes": 7452
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-fore-960.4f301c5d.avif",
+            "bytes": 11358
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-fore-1320.a08edb0b.avif",
+            "bytes": 15971
+          }
+        ],
+        "webp": [
+          {
+            "w": 640,
+            "src": "/hero/tall-fore-640.d0218152.webp",
+            "bytes": 14644
+          },
+          {
+            "w": 960,
+            "src": "/hero/tall-fore-960.a2d1718a.webp",
+            "bytes": 25904
+          },
+          {
+            "w": 1320,
+            "src": "/hero/tall-fore-1320.39e59b73.webp",
+            "bytes": 37662
+          }
+        ]
+      }
+    }
+  }
+}

@@ -35,6 +35,7 @@ npm run dev      # unauthenticated: 60 GitHub API calls/hour
 ```
 
 - Copy and identity: `src/content/site.ts`, `src/content/projects.ts`
+- Hero art: painted procedurally in GLSL and baked offline (no image models, no source photo): `scripts/hero/bake.py` renders a night launch through ink-and-wash cumulus with moderngl into seven parallax layers (sky, earth, back cloud, shuttle, exhaust glow, front cloud, foreground), in a wide and a tall composition; `encode.mjs` writes AVIF/WebP to `public/hero` and `src/content/hero-manifest.json`. Run `npm run hero` (needs `pip install moderngl numpy pillow opencv-python`); scene layout lives in `scripts/hero/scenes.py`, shaders in `scripts/hero/glsl/`.
 - Artwork: replace `assets-src/wallpapers/<slug>.png` (or `assets-src/icons/<slug>.png|svg`) and run `npm run art`. It writes hashed AVIF/WebP files to `public/art` and `src/content/art-manifest.json`; commit both.
 
 ## Deploy on Vercel
